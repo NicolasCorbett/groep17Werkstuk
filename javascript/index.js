@@ -122,3 +122,35 @@ console.log(oneDriver);
 
 const SpeedSet = oneDriver.map(addSpeed(a));
 console.log(SpeedSet);
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+const sortedDrivers = drivers.sort(function(a,b){
+    if(a.name < b.name){return -1;}
+    if(a.name > b.name){return 1;}
+    return 0;
+});
+console.log(sortedDrivers);
+
+const driverNames = sortedDrivers.map(function (obj){
+   return obj.name;
+});
+
+   function binarySearch(items, value){
+       let startIndex  = 0;
+       let stopIndex   = items.length - 1;
+       let middle      = Math.floor((stopIndex + startIndex)/2);
+       while(items[middle] != value && startIndex < stopIndex){
+           if (value < items[middle]){
+               stopIndex = middle - 1;
+           } else if (value > items[middle]){
+               startIndex = middle + 1;
+           }
+           middle = Math.floor((stopIndex + startIndex)/2);
+       }
+       return (items[middle] != value) ? -1 : middle;
+   }
+
+   let index = binarySearch(driverNames, "Liam");
+   let searchResult = drivers[index];
+   console.log(searchResult);
