@@ -1,6 +1,6 @@
 package be.ehb.multec;
 
-public class ExpertCar extends MakeCar {
+public class ExpertCar extends AssambleCar {
 
     public ExpertCar(int id, String color) {
         this.id = id;
@@ -11,6 +11,7 @@ public class ExpertCar extends MakeCar {
         this.LEDS = false;
         this.speed = 50;
 
+        breaking = new ItBreaksBarrier();
 
     }
 

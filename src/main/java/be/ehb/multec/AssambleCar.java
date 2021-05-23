@@ -2,7 +2,7 @@ package be.ehb.multec;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class MakeCar {
+public abstract class AssambleCar {
 
     protected int id;
     protected String color;
@@ -12,7 +12,7 @@ public abstract class MakeCar {
     protected boolean livery;
     protected double speed;
 
-
+    protected SoundBarrier breaking;
 
 
     final void makeCar(){
@@ -51,7 +51,17 @@ public abstract class MakeCar {
     abstract void addLEDS();
     abstract void addLivery();
 
+    public void setBreakingAbility(SoundBarrier newBreaking){
+        breaking = newBreaking;
+    }
 
+    public String tryToBreak(){
+        return breaking.soundbarrier();
+    }
+
+    public SoundBarrier getBreaking() {
+        return breaking;
+    }
 
     boolean driverWantsColor(){return true;}
     boolean driverWantsTurbo(){return true;}

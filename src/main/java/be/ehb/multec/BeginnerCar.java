@@ -1,6 +1,6 @@
 package be.ehb.multec;
 
-public class BeginnerCar extends MakeCar {
+public class BeginnerCar extends AssambleCar {
 
     public BeginnerCar(int id, String color) {
         this.id = id;
@@ -11,9 +11,7 @@ public class BeginnerCar extends MakeCar {
         this.LEDS = false;
         this.speed = 50;
 
-
-
-
+        breaking = new ItCantBreaksBarrier();
     }
 
     boolean driverWantsTurbo(){return false;}

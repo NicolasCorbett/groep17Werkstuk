@@ -11,9 +11,9 @@ public class CarTester {
 
     @Test
     public void testCarTemplate() {
-        MakeCar AutoT1 = new TunedCar(9, "blue");
+        AssambleCar AutoT1 = new TunedCar(9, "blue");
         AutoT1.makeCar();
-        MakeCar AutoT2 = new ExpertCar(10, "blue");
+        AssambleCar AutoT2 = new ExpertCar(10, "blue");
         AutoT2.makeCar();
 
         assertEquals(AutoT1.getClass().getClass(), AutoT2.getClass().getClass());
@@ -30,5 +30,20 @@ public class CarTester {
 
         assertNotEquals(Test.getSkill(), Test2.getSkill());
 
+    }
+
+
+
+    @Test
+    public void testCarStrategy() {
+        AssambleCar AutoS1 = new TunedCar(9, "blue");
+        AutoS1.makeCar();
+
+        String eersteversie = AutoS1.breaking.soundbarrier();
+        AutoS1.setBreakingAbility(new ItBreaksBarrier());
+        String tweedeeversie = AutoS1.breaking.soundbarrier();
+
+
+        assertNotEquals(eersteversie, tweedeeversie);
     }
 }
