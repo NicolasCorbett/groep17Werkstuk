@@ -92,3 +92,33 @@ const skillLevel = {
  
  const driversWithSkillset = drivers.map(addSkillset(skillLevel));
  console.log(driversWithSkillset); //zie comment line 45-50
+
+ ////////////////////////////////////////////////////////////////////////////////
+
+ const a = { 
+    a: ""
+};
+/*
+    deze const wordt gebruikt om de partiële applicatie addSpeed
+    mogelijk te maken. Verder heeft deze echter geen echte functionaliteit.
+*/
+
+function addSpeed(a){
+    return function (driver){
+        const b = a;
+        const moddedDrivers = {
+            ...driver,
+            setSpeed: function(number){
+                this.speed = number;
+            }
+        };
+        moddedDrivers.setSpeed(350);
+        return moddedDrivers;
+    };
+}
+
+const oneDriver = drivers.filter(driver => driver.name === "Liam");
+console.log(oneDriver);
+
+const SpeedSet = oneDriver.map(addSpeed(a));
+console.log(SpeedSet);
