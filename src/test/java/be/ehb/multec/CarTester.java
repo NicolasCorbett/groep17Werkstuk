@@ -20,4 +20,15 @@ public class CarTester {
         assertNotEquals(AutoT1.speed, AutoT2.speed);
 
     }
+
+    @Test
+    public void testDriverDecorator() {
+
+        Driver Test = new DriftSkill(new BrakingSkill(new RecoverySkill(new DriverClass(1, "Brent Nekkebroeck", 20, "Male"))));
+        Driver Test2 = new RecoverySkill(new DriftSkill(new DriverClass(2, "Nico Corbett", 28, "Male")));
+
+
+        assertNotEquals(Test.getSkill(), Test2.getSkill());
+
+    }
 }

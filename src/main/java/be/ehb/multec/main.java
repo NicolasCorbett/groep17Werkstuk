@@ -17,5 +17,14 @@ public class main {
         test8auto.makeCar();
 
 
+
+
+        Driver Brent = new DriftSkill(new BrakingSkill(new RecoverySkill(new DriverClass(1, "Brent Nekkebroeck", 20, "Male"))));
+        System.out.println(Brent.getDescription() + " The skill rating of your Driver is " + Brent.getSkill() + "\n");
+
+        Driver Nicolas = new DriftSkill((new RecoverySkill(new DriverClass(2, "Nico Corbett", 20, "Male"))));
+        System.out.println(Nicolas.getDescription() + " The skill rating of your Driver is " + Nicolas.getSkill() + "\n" );
+        
+
     }
 }
