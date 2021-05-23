@@ -116,6 +116,10 @@ function addSpeed(a){
         return moddedDrivers;
     };
 }
+/*  ^^^^^^
+    "Getters and setters" - O'REILLY
+    Geraadpleegd via: https://www.oreilly.com/library/view/javascript-functional-programming/9781787124660/ch04s04.html
+*/
 
 const oneDriver = drivers.filter(driver => driver.name === "Liam");
 console.log(oneDriver);
@@ -124,6 +128,8 @@ const SpeedSet = oneDriver.map(addSpeed(a));
 console.log(SpeedSet);
 
 /////////////////////////////////////////////////////////////////////////////////////////
+
+//Het algoritme is niet functioneel geprogrammeerd, dit was ook niet vereist.
 
 const sortedDrivers = drivers.sort(function(a,b){
     if(a.name < b.name){return -1;}
@@ -150,6 +156,14 @@ const driverNames = sortedDrivers.map(function (obj){
        }
        return (items[middle] != value) ? -1 : middle;
    }
+
+   /*
+        "Grokking Algorithms, binary search" - Aditya Bhargava
+        Geraadpleegd via: Canvas, https://ehb.instructure.com/courses/19925/files/1275708?wrap=1
+        -----------------------------------------------------------------------------------------
+        "How to Search a JavaScript String Array Using a Binary Search" - Rob Gravelle
+        Geradpleegd via: https://www.htmlgoodies.com/javascript/how-to-search-a-javascript-string-array-using-a-binary-search/
+   */
 
    let index = binarySearch(driverNames, "Liam");
    let searchResult = drivers[index];
