@@ -14,7 +14,7 @@ const drivers = [
     {age: 21, name: "Robbe<3", speed: 69420}
    ];
 
-   /////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 
    const speedObservations = {
     slow:           'below 90km/h',
@@ -48,3 +48,47 @@ t.o.v. de gebruiker. We wachten echter zo lang mogelijk
 met het aanpassen v.d. state, tot na we alle bewerkingen op
 de data gedaan hebben.
 */  
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+const skillLevel = {
+    beginner:{
+         maxSpeed: 90,
+         drifting: false
+    },
+    regular: {
+         maxSpeed: 110,
+         drifting: true
+    },
+    expert:  {
+         maxSpeed: "no limit",
+         drifting: true
+    }
+ };
+ 
+ function getLevel(level){
+     if(level >= 110){
+         return 'expert';
+     }else if (level >= 90){
+         return 'regular';
+     }else{
+         return 'beginner';
+     }
+ }
+ 
+ function addSkillset(skillsets){
+     return function(driver){
+         const speed = getLevel(driver.speed);
+         const skillset = skillsets[speed];
+         const driverWithSkill = {
+             ...driver,
+             maxSpeed: skillset.maxSpeed,
+             drifting: skillset.drifting
+        };
+        return driverWithSkill;
+     };
+     
+ }
+ 
+ const driversWithSkillset = drivers.map(addSkillset(skillLevel));
+ console.log(driversWithSkillset); //zie comment line 45-50
