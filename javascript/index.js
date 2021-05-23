@@ -14,4 +14,37 @@ const drivers = [
     {age: 21, name: "Robbe<3", speed: 69420}
    ];
 
-  
+   /////////////////////////////////////////////////////////////
+
+   const speedObservations = {
+    slow:           'below 90km/h',
+    intermediate:   'exceeding 90km/h',
+    high:           'zooming faster than 110km/h'
+};
+
+function getSpeed(km){
+    if (km >= 110){
+        return 'high';
+    }else if (km >= 90){
+        return 'intermediate';
+    }else{
+        return 'slow';
+    }
+}
+
+function raceObservation(speedObservations){
+        return function(driver){
+            const driverName = driver.name;
+            const speed = getSpeed(driver.speed);
+            const speedObservation = speedObservations[speed];
+            return `${driverName} drove past at a ${speed} speed, ${speedObservation}`;
+        };
+}
+const driverObservations = drivers.map(raceObservation(speedObservations));
+console.log(driverObservations); 
+/*
+logging to the console is een noodzakelijke side-effect 
+t.o.v. de gebruiker. We wachten echter zo lang mogelijk
+met het aanpassen v.d. state, tot na we alle bewerkingen op
+de data gedaan hebben.
+*/  
