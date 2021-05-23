@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="be.ehb.multec.CarTester" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-05-23T13:08:11" hostname="DESKTOP-RILTOL9" time="0.003">
+  <properties/>
+  <testcase name="testCarTemplate" classname="be.ehb.multec.CarTester" time="0.003"/>
+  <system-out><![CDATA[A new car is about to be made...
+The car has started its assembly
+Turbo was added
+The maximum speed therefore increased by 10 to 110km/h
+Spoiler was added
+Speed is increased to 125km/h
+The car is finished!
+Add a driver to drive with this car
+A new car is about to be made...
+The car has started its assembly
+The car is finished!
+Add a driver to drive with this car
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
